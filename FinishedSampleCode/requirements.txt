@@ -1,0 +1,6 @@
+tornado
+dnspython
+pymongo
+configparser
+google-cloud-vision
+google-cloud-language

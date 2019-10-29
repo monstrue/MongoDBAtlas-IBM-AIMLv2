@@ -1,0 +1,11 @@
+venv/
+pyv/
+Web/static/css/.DS_Store
+.vscode/settings.json
+*.pyc
+images/.DS_Store
+FinishedSampleCode/gcpcreds.json
+FinishedSampleCode/settings.cfg
+FinishedSampleCode/Web/static/css/.DS_Store
+.idea*
+*.swp

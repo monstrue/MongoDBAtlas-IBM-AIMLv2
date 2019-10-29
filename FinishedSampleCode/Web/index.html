@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>{{ title }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      // what is the server IP address
+      var localip = window.location.hostname;
+      // open a websocket to that server but use the websocket port not http port
+      var connection = new WebSocket('ws://' + localip + ":8089");
+      
+      // we got a message from the python code via the web socket 
+      connection.onmessage = function (event) {
+        // put it in developer console
+        console.log(event);
+        // parse the JSON to remove odd double quoting and stuff then put it in an HTML 
+        var mdbmsg = JSON.parse(event.data);
+        var html = "<p><code>"+JSON.stringify(mdbmsg)+"</code></p><hr />"
+        // write the html to the page in newest-first order
+        $('#div_msg').prepend(html);
+      }
+      
+      // when we click the insert button
+      $("#btn_insert").click(function(){
+        // get the value of the html text box, 
+        // send it over the websocket we created above 
+        // then make text box empty 
+        connection.send($('#txt_url').val());
+        $('#txt_url').val('');
+      }); 
+    });
+  </script>
+
+</head>
+
+<body>
+    <div class="container" style="height:1000px;">
+      <h1>Here's My Change Stream!</h1>
+      <h3>Newest events on top</h3>
+      <hr />
+      <div style="height:75px;">
+        <input type="text" id="txt_url" style="width:600px;float:left;" class="form-control" /> <button id="btn_insert" class="btn btn-success" style="float:left;">Insert</button>
+      </div>
+      <hr />
+      <div id="div_msg" style="height:800px;overflow-x: hidden; overflow-y: scroll;"></div>
+    </div>
+
+    <footer class="footer" >
+      <div class="container" style="height:50px;">
+        <span class="text-muted"><a href="https://github.com/graboskyc/MongoDBAtlas-GCP-AIML" target="_blank">GitHub Link Here</a></span>
+      </div>
+    </footer>
+
+</body>
+</html>
