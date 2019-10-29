@@ -63,7 +63,7 @@ Please note some people (on Windows with Firefox but it does apply to other brow
 Or use the below single line.
 
 ```
-  sudo apt-get update ; sudo apt-get install -y python3-pip ; sudo apt-get install -y git ; git clone https://github.com/eugenebogaart/MongoDBAtlas-GCP-/AIAIMLv2.git ; cd MongoDBAtlas-GCP-AIMLv2/FinishedSampleCode ; python3 -m pip install -r requirements.txt
+  sudo apt-get update ; sudo apt-get install -y python3-pip ; sudo apt-get install -y git ; git clone https://github.com/eugenebogaart/MongoDBAtlas-GCP-AIMLv2.git ; cd MongoDBAtlas-GCP-AIMLv2/FinishedSampleCode ; python3 -m pip install -r requirements.txt
 ```
  
 
