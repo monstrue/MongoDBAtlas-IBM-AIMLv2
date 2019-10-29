@@ -6,6 +6,7 @@ import tornado.websocket
 import threading
 import logging
 import os
+import sys
 from bson.json_util import dumps
 import configparser
 from google.cloud import vision
