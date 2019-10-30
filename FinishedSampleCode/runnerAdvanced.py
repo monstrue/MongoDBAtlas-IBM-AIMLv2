@@ -147,7 +147,7 @@ if __name__ == "__main__":
                     handle.update_one({'_id':ObjectId(change["fullDocument"]["_id"])}, {"$set": {"gcplanguage":sentiment}})
                 except:
                     logging.warning("API error on text: {a}".format(a=textToCheck))
-                    logging.warning("This might be an unsupported language")
+                    logging.warning("This might be an unsupported language.")
         # print to screen
         print(dumps(change))
         print("")

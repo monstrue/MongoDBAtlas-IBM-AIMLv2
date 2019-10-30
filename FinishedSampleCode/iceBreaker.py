@@ -5,6 +5,7 @@ import tornado.web
 import tornado.websocket
 import threading
 import os
+import sys
 from bson.json_util import dumps
 import configparser
 from google.cloud import language
@@ -26,11 +27,24 @@ cfg.read('settings.cfg')
 
 # configure connection to mongodb
 conn = pymongo.MongoClient(cfg['DEFAULT']['_URI'])
+try:
+    conn.server_info()
+except Exception as e:
+    logging.error("Unable to connect to {s}".format(s=cfg['DEFAULT']['_URI']))
+    conn = None
+    sys.exit(1)
+
 handle = conn[cfg['DEFAULT']['_DBNAME']][cfg['DEFAULT']['_COLNAME']]
 
 # configure connection to gcp vision api
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="gcpcreds.json"
-gcplang = language.LanguageServiceClient()
+try:
+    gcplang = language.LanguageServiceClient()
+except Exception as e:
+    logging.error("Unable to connect Vision API, did you configure: gcpcreds.json?")
+    sys.exit(1)
+
+
 
 #########
 # configure web interface
@@ -104,7 +118,8 @@ if __name__ == "__main__":
 					# update mongodb record with response from GCP
 					handle.update_one({'_id':ObjectId(change["fullDocument"]["_id"])}, {"$set": {"gcplanguage":sentiment}})
 				except Exception as e:
-					print('Problem with sentence')
+					logging.warning("API error on text: {a}".format(a=textToCheck))
+					logging.warning("This might be an unsupported language.")
 		if change["operationType"] == "update":
 			for c in _clients:
 				# fix disconnecting clients symptom rather than fixings
