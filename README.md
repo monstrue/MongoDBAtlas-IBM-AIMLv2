@@ -35,7 +35,7 @@ _45 Minutes_
 * Configure the `FinishedSampleCode/settings.cfg` to have the Atlas connection string and API key in it
 * Install any python requirements by running `pip install -r FinishedSampleCode/requirements.txt`
 * Start the application using `python3 FinishedSampleCode/runner.py`
-* Open a web browser to the GCP instance running on port 8088 over http
+* Open a web browser to the localhost instance running on port 8088 over http
 
 
 ## Low Level Readme
