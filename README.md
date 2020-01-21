@@ -42,7 +42,7 @@ _45 Minutes_
 * [Readme for configuring MongoDB Atlas](Guides/AtlasSetup.md)
 * [Readme for writing this code from scratch](Guides/Code.md) or alternately just use the code in `FinishedSampleCode`
 * [The guide for CRUD operations used during the instruction part of workshop](Guides/CRUD.md)
-* [Instructor's Notes](Guides/Instructors.md)
+
 
 # Execution
 * Start the application using `python3 FinishedSampleCode/runner.py`
