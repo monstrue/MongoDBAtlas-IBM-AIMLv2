@@ -33,7 +33,7 @@
 
 * Go to “Clusters” submenu, under “Atlas” on the left menu. 
 
-* Click on the "Collections" button and create a database called `gcpdemo` with a collection called `democol` 
+* Click on the "Collections" button and create a database called `ibmdemo` with a collection called `democol` 
 
 * Go to “Clusters” submenu, under “Atlas” on the left menu. 
 
