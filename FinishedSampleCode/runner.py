@@ -12,6 +12,10 @@ import configparser
 import json
 from datetime import datetime
 from watson_developer_cloud import VisualRecognitionV3
+import asyncio
+
+if sys.platform == 'win32':
+    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 
 # global variables
 _WEBSETTINGS = { "static_path": os.path.join(os.path.dirname(__file__)+"Web/", "static") }
