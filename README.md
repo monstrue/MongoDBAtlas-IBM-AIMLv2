@@ -1,7 +1,7 @@
 # MongoDBAtlas-IBM-AIML
 
 # Background
-This is a tutorial on how to use MongoDB Atlas with an example of integration with IBM Watson Visual API to create a event-driven model in Python.
+This is a tutorial on how to use MongoDB Atlas with an example of integration with IBM Watson Visual Recognition API to create a event-driven model in Python.
 
 ## Technical Complexity
 _Beginner_ to _Intermediate_ 
@@ -28,8 +28,8 @@ _45 Minutes_
 * Configure the free tier to create a username/password and an IP whitelist to allow access from anywhere
 * Make note of the connection string for Python
 * Create a Watson account
-* Enable the Cloud Vision API
-* Create a service on for Vision 
+* Enable the Visual Recognition API
+* Create a service on for the Visual Recognition API 
 * Get the API key
 * Install python, clone this github repo on to the host
 * Configure the `FinishedSampleCode/settings.cfg` to have the Atlas connection string and API key in it
@@ -50,7 +50,7 @@ _45 Minutes_
 * Insert a document into the database using MongoDB Compass or the new Data Explorer view in MongoDB Atlas which you can get to via the "Collections" button. The document you insert should have a field called `url` which is a full URL to an image.
 * Alternately enter the URL into the web page directly and press the green "Insert" button
 * Notice that in the web page and on the CLI output of the python script that it saw an insert
-* Notice that after the insert, the change stream called the Watson Vision API to see what is in it. Refresh the Compass or Atlas Data Explorer view and see the rich data structure of the Watson Vision API.
+* Notice that after the insert, the change stream called the Watson Visual Recognition API to see what is in it. Refresh the Compass or Atlas Data Explorer view and see the rich data structure of the Watson Visual Recognition API.
 
 ![](Guides/images/newss03.png)
 
